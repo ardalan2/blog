@@ -1,0 +1,5 @@
+setting the TEMPLATE_PATH
+setting the TEMPLATE_DIRS
+building the index template:
+	1. variable would be in {{}}
+	
