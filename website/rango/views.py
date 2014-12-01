@@ -3,10 +3,14 @@ from django.http import HttpResponse
 
 
 #----------------------------------------------------------------------
+context_dict = {'boldmessage': "I am bold font from the context",
+                    'name':"ardalan",                
+                    
+                    }
 def index(request):
-    context_dict = {'boldmessage': "I am bold font from the context"}
+    
     return render (request,'index.html',context_dict)
 def about(request):
-    return HttpResponse("This is the about page!<a href='/rango'>Index</a>")
+    return render (request,'about.html',context_dict)
     
 # Create your views here.
