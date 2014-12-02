@@ -8,7 +8,7 @@ class Category(models.Model):
         return self.name
 
 ########################################################################
-class Page:
+class Page(models.Model):
     category = models.ForeignKey(Category)
     title = models.CharField(max_length=128)
     url = models.URLField()
