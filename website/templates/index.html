@@ -7,9 +7,32 @@
 	</head>
 	<body>
 		<h1>Rango says...</h1>
-		hello world <strong> {{boldmessage}} </strong> <br />
-		<a href="/rango/about/">About</a><br />
-		<img src="{% static "images/ardalan.jpg" %}" alt= "picture of ardalan" height="200" width="150">
+		{% if categories %}
+		The top most liked categories:
+			<ul>
+				{% for category in categories %}
+				<li> <a href="/rango/category/{{ category.slug }}">{{ category.name }}</a> ({{ category.likes }}) </li>
+				{% endfor %}
+			</ul>
+		{% else %}
+			<strong> there are no categories present. </strong>
+
+		{% endif %}
+		{% if pages%}
+		the top most viewed pages:
+			<ul>
+				{% for page in pages %}
+				<li> {{ page.title }} </li>
+				{% endfor %}
+
+
+			</ul>
+		<a href="/rango/about/">About</a>
+
+		{% else %}
+			<strong>there is no page to present </strong>
+		{% endif %}
+
 
 
 	</body>

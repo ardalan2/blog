@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head> 
+		<title>new page</title>
+	</head>
+	<body>
+		<STRONG> {{category.name}} </STRONG>
+
+		{% if category %}
+		<form id="add_page_form" method="post" action="/rango/category/{{category.slug}}/add_page/" >
+			{% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+                {{ field }}<br />
+            {% endfor %}
+            <input type="submit" name="submit" value="creat page" />
+
+
+
+		</form>
+
+
+
+
+
+
+
+
+
+		{% else %}
+		A category by this name does not exist..!
+
+
+		{% endif %}
+		
+
+		
+
+
+
+
+
+	</body>
+
+
+
+
+
+
+</html>
